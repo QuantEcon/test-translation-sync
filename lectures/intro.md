@@ -17,7 +17,7 @@ Updated introduction paragraph with more context about the field.
 
 ## Overview
 
-Economic analysis helps us understand how individuals, businesses, and governments make decisions.
+Economic analysis helps us understand how individuals, businesses, and governments make decisions under conditions of scarcity.
 
 ### Core Principles
 
