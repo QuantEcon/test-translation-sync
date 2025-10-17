@@ -23,6 +23,28 @@ Economics is the study of how societies allocate scarce resources.
 - **Opportunity cost**: The value of the next best alternative
 - **Supply and demand**: Market forces that determine prices
 
+## Economic Models
+
+Economic models are simplified representations of reality used to understand and predict economic behavior.
+
+### The Cobb-Douglas Model
+
+One of the most fundamental models in economics is the Cobb-Douglas production function, which describes how inputs are transformed into outputs.
+
+The model assumes that output depends on two main inputs:
+- Capital (K): Physical assets like machinery and buildings
+- Labor (L): Human effort and skills
+
+### Key Properties
+
+The Cobb-Douglas function exhibits several important economic properties:
+
+1. **Constant returns to scale**: Doubling both inputs doubles output
+2. **Diminishing marginal returns**: Each additional unit of input produces less additional output
+3. **Substitutability**: Capital and labor can partially substitute for each other
+
+These properties make the model particularly useful for analyzing long-run economic growth and resource allocation decisions.
+
 ## Mathematical Example
 
 The production function:
@@ -82,13 +104,14 @@ Always verify your model's predictions against real data.
 
 ## Summary
 
-This lecture covered:
-1. Basic economic concepts
-2. Production functions
-3. Computational methods
+This lecture introduced:
+- Basic economic concepts (scarcity, opportunity cost, supply and demand)
+- Economic models and the Cobb-Douglas production function
+- Mathematical and computational applications
+
+Understanding these fundamentals is essential for further study in economics.
 
 ## References
 
-- Smith, Adam. "The Wealth of Nations" (1776)
-- Keynes, John Maynard. "The General Theory of Employment, Interest and Money" (1936)
-- Solow, Robert M. "A Contribution to the Theory of Economic Growth" (1956)
+1. Cobb, C. W., & Douglas, P. H. (1928). A theory of production. *American Economic Review*, 18(1), 139-165.
+2. Solow, R. M. (1956). A contribution to the theory of economic growth. *Quarterly Journal of Economics*, 70(1), 65-94.
