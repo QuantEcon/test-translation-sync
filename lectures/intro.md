@@ -23,6 +23,12 @@ Economics is the study of how societies allocate scarce resources.
 - **Opportunity cost**: The value of the next best alternative
 - **Supply and demand**: Market forces that determine prices
 
+## Economic Models
+
+Economic models are simplified representations of economic processes. They help us understand complex systems by focusing on key relationships.
+
+We use both theoretical and empirical approaches to build and test these models.
+
 ## Mathematical Example
 
 The production function:
