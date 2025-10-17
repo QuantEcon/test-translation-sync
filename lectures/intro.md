@@ -11,20 +11,21 @@ kernelspec:
 
 # Introduction to Economics
 
-This is a comprehensive test lecture for the translation sync action, designed to test all features of the v0.4.0 heading-map system including new sections, modified sections, subsections, code blocks, mathematical equations, and MyST directives.
+This is a comprehensive test lecture for the translation sync action v0.4.1, designed to test all bug fixes including proper section ordering, complete heading-map with subsections, no duplicates, and all sections present.
 
 ## Overview
 
-This lecture provides a comprehensive introduction to economic principles and their computational applications.
+This lecture provides a comprehensive introduction to economic principles and their computational applications, with special emphasis on quantitative methods.
 
 ### Core Principles
 
 The study of economics rests on several fundamental pillars:
 
-1. **Resource Allocation**: How societies decide what to produce
-2. **Market Mechanisms**: The role of prices in coordinating decisions
-3. **Optimization**: How agents make choices under constraints
+1. **Resource Allocation**: How societies decide what to produce and distribute
+2. **Market Mechanisms**: The role of prices in coordinating economic decisions
+3. **Optimization**: How agents make optimal choices under constraints
 4. **Equilibrium Analysis**: Understanding stable states in economic systems
+5. **Empirical Validation**: Testing theory against real-world data
 
 ## Basic Concepts
 
