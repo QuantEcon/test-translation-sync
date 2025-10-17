@@ -11,7 +11,7 @@ kernelspec:
 
 # Introduction to Economics
 
-This is a test lecture for translation sync action.
+This is a test lecture for translation sync action. Testing Bug #7 fix!
 
 ## Basic Concepts
 
