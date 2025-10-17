@@ -15,13 +15,40 @@ This is a test lecture for translation sync action.
 
 ## Basic Concepts
 
-Economics is the study of how societies allocate scarce resources.
+Economics is the study of how societies allocate scarce resources to meet unlimited wants and needs.
 
 ### Key Terms
 
-- **Scarcity**: Limited resources
-- **Opportunity cost**: The value of the next best alternative
-- **Supply and demand**: Market forces that determine prices
+- **Scarcity**: Limited resources relative to unlimited wants
+- **Opportunity cost**: The value of the next best alternative foregone
+- **Supply and demand**: Market forces that determine prices in competitive markets
+- **Marginal utility**: Additional satisfaction from consuming one more unit
+
+## Market Equilibrium
+
+Market equilibrium occurs when supply equals demand at a particular price level.
+
+### Equilibrium Conditions
+
+The equilibrium price $P^*$ and quantity $Q^*$ satisfy:
+
+$$
+Q_d(P^*) = Q_s(P^*)
+$$
+
+where $Q_d$ is quantity demanded and $Q_s$ is quantity supplied.
+
+### Example
+
+Consider a simple linear market:
+- Demand: $Q_d = 100 - 2P$
+- Supply: $Q_s = 20 + 3P$
+
+Solving for equilibrium:
+$$
+100 - 2P^* = 20 + 3P^* \\
+P^* = 16, \quad Q^* = 68
+$$
 
 ## Mathematical Example
 
@@ -86,9 +113,10 @@ Always verify your model's predictions against real data.
 This lecture covered the following key topics:
 
 1. **Basic economic concepts** - scarcity, opportunity cost, and market forces
-2. **Production functions** - mathematical modeling of economic output
-3. **Computational methods** - implementing economic models in Python
-4. **MyST markdown** - special directives for enhanced documentation
+2. **Market equilibrium** - where supply meets demand
+3. **Production functions** - mathematical modeling of economic output
+4. **Computational methods** - implementing economic models in Python
+5. **MyST markdown** - special directives for enhanced documentation
 
 These fundamentals form the foundation for more advanced economic analysis.
 
