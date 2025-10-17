@@ -21,5 +21,5 @@ jobs:
         with:
           target-repo: quantecon/test-translation-sync.zh-cn
           target-language: zh-cn
-          github-token: \${{ secrets.QUANTECON_SERVICES_PAT }}
-          anthropic-api-key: \${{ secrets.ANTHROPIC_API_KEY }}
+          github-token: ${{ secrets.QUANTECON_SERVICES_PAT }}
+          anthropic-api-key: ${{ secrets.ANTHROPIC_API_KEY }}
