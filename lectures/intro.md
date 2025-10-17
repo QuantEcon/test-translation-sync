@@ -49,16 +49,15 @@ def calculate_gdp(capital, labor, productivity=1.0, alpha=0.3):
     capital : float
         Capital stock
     labor : float
-        Labor input
+        Labor force
     productivity : float
-        Total factor productivity (A)
+        Total factor productivity (default: 1.0)
     alpha : float
-        Output elasticity of capital
+        Capital share (default: 0.3)
         
     Returns:
     --------
-    float
-        GDP output
+    float : Calculated GDP
     """
     return productivity * (capital ** alpha) * (labor ** (1 - alpha))
 
@@ -70,7 +69,7 @@ print(f"GDP: {gdp:.2f}")
 ## MyST Directives
 
 ```{note}
-This section demonstrates MyST-specific markdown extensions.
+This is an important note about economic theory.
 ```
 
 ```{warning}
@@ -83,14 +82,10 @@ Always verify your model's predictions against real data.
 
 ## Summary
 
-This lecture covered the following key topics:
-
-1. **Basic economic concepts** - scarcity, opportunity cost, and market forces
-2. **Production functions** - mathematical modeling of economic output
-3. **Computational methods** - implementing economic models in Python
-4. **MyST markdown** - special directives for enhanced documentation
-
-These fundamentals form the foundation for more advanced economic analysis.
+This lecture covered:
+1. Basic economic concepts
+2. Production functions
+3. Computational methods
 
 ## References
 
