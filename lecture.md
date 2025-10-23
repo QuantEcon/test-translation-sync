@@ -9,38 +9,18 @@ kernelspec:
   name: python3
 ---
 
-# Linear Algebra Foundations
+# Introduction to Economics
 
-This lecture introduces fundamental concepts in linear algebra that are essential for quantitative economics. We'll explore vector spaces, matrices, and their applications to economic problems.
+This document provides a basic introduction to economic principles. We will explore fundamental concepts that form the foundation of economic analysis.
 
-## Vector Spaces
+## Supply and Demand
 
-A vector space is a collection of objects called vectors, which can be added together and multiplied by scalars. Understanding vector spaces is crucial for modern economic analysis.
+Supply and demand are the most fundamental concepts in economics. The supply curve shows how much producers are willing to sell at different prices, while the demand curve shows how much consumers are willing to buy.
 
-### Basic Properties
+When markets are in equilibrium, the quantity supplied equals the quantity demanded. This equilibrium price balances the interests of buyers and sellers.
 
-Vector spaces satisfy several key properties:
-- Closure under addition and scalar multiplication
-- Existence of additive identity (zero vector)
-- Existence of additive inverses
+## Economic Models
 
-These properties ensure that vector spaces behave predictably under mathematical operations.
+Economic models are simplified representations of economic processes. They help economists understand complex systems by focusing on the most important relationships.
 
-## Matrix Operations
-
-Matrices are rectangular arrays of numbers that represent linear transformations. They are fundamental tools in economic modeling and data analysis.
-
-Matrix multiplication allows us to compose linear transformations. For matrices $A$ and $B$, the product $AB$ represents applying transformation $B$ followed by transformation $A$.
-
-### Applications in Economics
-
-Economic models often use matrices to represent:
-- Input-output relationships in production
-- Transition probabilities in Markov chains
-- Coefficient matrices in linear equation systems
-
-## Eigenvalues and Eigenvectors
-
-Eigenvalues and eigenvectors reveal important properties of linear transformations. An eigenvector $v$ of matrix $A$ satisfies $Av = \lambda v$, where $\lambda$ is the eigenvalue.
-
-These concepts are essential for analyzing dynamic economic systems, such as growth models and stability analysis.
+Models make assumptions to simplify reality. While no model is perfect, good models provide valuable insights into how the economy works.
