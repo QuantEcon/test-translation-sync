@@ -9,7 +9,7 @@ kernelspec:
   name: python3
 ---
 
-# Introduction to Economics
+# Principles of Economic Analysis
 
 This document provides a basic introduction to economic principles. We will explore fundamental concepts that form the foundation of economic analysis.
 
