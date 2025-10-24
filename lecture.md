@@ -62,59 +62,6 @@ The sum of two vectors $\mathbf{u}$ and $\mathbf{v}$ is defined component-wise:
 \mathbf{u} + \mathbf{v} = \begin{bmatrix} u_1 + v_1 \\ u_2 + v_2 \\ \vdots \\ u_n + v_n \end{bmatrix}
 ```
 
-## Matrix Operations
-
-Matrices are rectangular arrays of numbers that represent linear transformations. They are fundamental tools in economic modeling and data analysis.
-
-A general $m \times n$ matrix has the form:
-
-$$
-A = \begin{bmatrix}
-a_{11} & a_{12} & \cdots & a_{1n} \\
-a_{21} & a_{22} & \cdots & a_{2n} \\
-\vdots & \vdots & \ddots & \vdots \\
-a_{m1} & a_{m2} & \cdots & a_{mn}
-\end{bmatrix}
-$$
-
-Matrix multiplication allows us to compose linear transformations. For matrices $A$ and $B$, the product $AB$ represents applying transformation $B$ followed by transformation $A$.
-
-Let's demonstrate matrix operations with an economic application:
-
-```{code-cell} python
-# Create a simple input-output matrix for a 3-sector economy
-# Sectors: Agriculture, Manufacturing, Services
-input_output = np.array([
-    [0.2, 0.3, 0.1],  # Agriculture inputs
-    [0.3, 0.2, 0.2],  # Manufacturing inputs
-    [0.1, 0.2, 0.3]   # Services inputs
-])
-
-# Final demand vector (in billions)
-final_demand = np.array([100, 150, 200])
-
-# Calculate total output using Leontief inverse: x = (I - A)^{-1} * d
-I = np.eye(3)
-leontief_inverse = np.linalg.inv(I - input_output)
-total_output = leontief_inverse @ final_demand
-
-print("Input-Output Matrix:")
-print(input_output)
-print("\nLeontief Inverse:")
-print(np.round(leontief_inverse, 3))
-print("\nTotal Output Required (billions):")
-print(np.round(total_output, 2))
-```
-
-### Applications in Economics
-
-Economic models often use matrices to represent:
-- Input-output relationships in production
-- Transition probabilities in Markov chains
-- Coefficient matrices in linear equation systems
-
-The Leontief inverse $(I - A)^{-1}$ is particularly important, where $I$ is the identity matrix and $A$ is the input-output coefficient matrix.
-
 ## Eigenvalues and Eigenvectors
 
 Eigenvalues and eigenvectors reveal important properties of linear transformations. An eigenvector $v$ of matrix $A$ satisfies:
