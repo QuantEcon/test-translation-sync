@@ -9,167 +9,127 @@ kernelspec:
   name: python3
 ---
 
-# Linear Algebra Foundations
+# Programming for Economics
 
-This lecture introduces fundamental concepts in linear algebra that are essential for quantitative economics. We'll explore vector spaces, matrices, and their applications to economic problems.
+This lecture covers programming concepts and tools essential for modern economic analysis.
 
-## Vector Spaces
+## Using `numpy` Arrays
 
-A vector space is a collection of objects called vectors, which can be added together and multiplied by scalars. Understanding vector spaces is crucial for modern economic analysis.
+The `numpy` library provides efficient array operations for numerical computing. Arrays are the foundation of scientific computing in Python.
 
-Mathematically, a vector $\mathbf{v} \in \mathbb{R}^n$ can be represented as:
+NumPy arrays support vectorized operations, avoiding slow Python loops:
 
-$$
-\mathbf{v} = \begin{bmatrix} v_1 \\ v_2 \\ \vdots \\ v_n \end{bmatrix}
-$$
-
-Let's create and visualize some vectors in Python:
-
-```{code-cell} python
+```python
 import numpy as np
+arr = np.array([1, 2, 3, 4, 5])
+result = arr ** 2  # Vectorized squaring
+```
+
+### Creating Arrays with `np.arange()` and `np.linspace()`
+
+Different array creation methods serve different purposes. The `np.arange()` function creates arrays with specified step sizes:
+
+```python
+x = np.arange(0, 10, 0.5)  # From 0 to 10, step 0.5
+```
+
+Meanwhile, `np.linspace()` creates arrays with a specified number of points:
+
+```python
+y = np.linspace(0, 1, 100)  # 100 points from 0 to 1
+```
+
+## Working with **Pandas DataFrames**
+
+The **pandas** library provides powerful data manipulation capabilities. DataFrames are two-dimensional labeled data structures.
+
+### Reading Data: `pd.read_csv()` vs `pd.read_excel()`
+
+Different file formats require different reading functions:
+
+- **CSV files**: Use `pd.read_csv('data.csv')`
+- **Excel files**: Use `pd.read_excel('data.xlsx')`
+- **JSON files**: Use `pd.read_json('data.json')`
+
+## *Matplotlib* Visualization Basics
+
+*Matplotlib* is the foundational plotting library for Python. It provides fine-grained control over plot appearance.
+
+### The `plt.plot()` Function
+
+Basic line plots are created with `plt.plot(x, y)`:
+
+```python
 import matplotlib.pyplot as plt
-
-# Create two vectors
-v1 = np.array([2, 3])
-v2 = np.array([1, 4])
-
-# Visualize vectors
-fig, ax = plt.subplots(figsize=(8, 6))
-ax.quiver(0, 0, v1[0], v1[1], angles='xy', scale_units='xy', scale=1, color='blue', label='v1')
-ax.quiver(0, 0, v2[0], v2[1], angles='xy', scale_units='xy', scale=1, color='red', label='v2')
-ax.set_xlim(-1, 5)
-ax.set_ylim(-1, 5)
-ax.set_xlabel('x-axis')
-ax.set_ylabel('y-axis')
-ax.set_title('Vector Representation in 2D Space')
-ax.legend()
-ax.grid(True)
+plt.plot([1, 2, 3], [4, 5, 6])
+plt.xlabel('x-axis')
+plt.ylabel('y-axis')
+plt.title('Simple Plot')
 plt.show()
 ```
 
-### Basic Properties
+## Using [QuantEcon](https://quantecon.org) Libraries
 
-Vector spaces satisfy several key properties:
-- Closure under addition and scalar multiplication
-- Existence of additive identity (zero vector)
-- Existence of additive inverses
+The [QuantEcon](https://quantecon.org) project provides specialized tools for economic modeling. Visit the [documentation](https://quanteconpy.readthedocs.io/) for details.
 
-These properties ensure that vector spaces behave predictably under mathematical operations.
+### Installing `quantecon` Package
 
-#### Applications in Economics
+Install via pip:
 
-Vector space properties are fundamental in economic modeling. The closure property ensures that combinations of feasible allocations remain feasible, while the existence of inverses allows us to model debts and obligations.
-
-The sum of two vectors $\mathbf{u}$ and $\mathbf{v}$ is defined component-wise:
-
-```{math}
-\mathbf{u} + \mathbf{v} = \begin{bmatrix} u_1 + v_1 \\ u_2 + v_2 \\ \vdots \\ u_n + v_n \end{bmatrix}
+```bash
+pip install quantecon
 ```
 
-## Matrix Operations
+Or with conda:
 
-Matrices are rectangular arrays of numbers that represent linear transformations. They are fundamental tools in economic modeling and data analysis.
-
-A general $m \times n$ matrix has the form:
-
-$$
-A = \begin{bmatrix}
-a_{11} & a_{12} & \cdots & a_{1n} \\
-a_{21} & a_{22} & \cdots & a_{2n} \\
-\vdots & \vdots & \ddots & \vdots \\
-a_{m1} & a_{m2} & \cdots & a_{mn}
-\end{bmatrix}
-$$
-
-Matrix multiplication allows us to compose linear transformations. For matrices $A$ and $B$, the product $AB$ represents applying transformation $B$ followed by transformation $A$.
-
-Let's demonstrate matrix operations with an economic application:
-
-```{code-cell} python
-# Create a simple input-output matrix for a 3-sector economy
-# Sectors: Agriculture, Manufacturing, Services
-input_output = np.array([
-    [0.2, 0.3, 0.1],  # Agriculture inputs
-    [0.3, 0.2, 0.2],  # Manufacturing inputs
-    [0.1, 0.2, 0.3]   # Services inputs
-])
-
-# Final demand vector (in billions)
-final_demand = np.array([100, 150, 200])
-
-# Calculate total output using Leontief inverse: x = (I - A)^{-1} * d
-I = np.eye(3)
-leontief_inverse = np.linalg.inv(I - input_output)
-total_output = leontief_inverse @ final_demand
-
-print("Input-Output Matrix:")
-print(input_output)
-print("\nLeontief Inverse:")
-print(np.round(leontief_inverse, 3))
-print("\nTotal Output Required (billions):")
-print(np.round(total_output, 2))
+```bash
+conda install -c conda-forge quantecon
 ```
 
-### Applications in Economics
+## Special Cases: $\LaTeX$ in Headings
 
-Economic models often use matrices to represent:
-- Input-output relationships in production
-- Transition probabilities in Markov chains
-- Coefficient matrices in linear equation systems
+Mathematical notation appears inline: $f(x) = x^2 + 2x + 1$.
 
-The Leontief inverse $(I - A)^{-1}$ is particularly important, where $I$ is the identity matrix and $A$ is the input-output coefficient matrix.
+### The $\beta$-Coefficient in Regression
 
-## Eigenvalues and Eigenvectors
+The regression coefficient $\beta$ measures the relationship between variables:
 
-Eigenvalues and eigenvectors reveal important properties of linear transformations. An eigenvector $v$ of matrix $A$ satisfies:
-
-```{math}
-:label: eigenvalue-equation
-Av = \lambda v
+$$
+y = \alpha + \beta x + \epsilon
 ```
 
-where $\lambda$ is the eigenvalue. This fundamental equation appears throughout economics, from growth theory to stability analysis.
+### Computing $\mathbb{E}[X]$ (Expected Values)
 
-For an $n \times n$ matrix $A$, the characteristic polynomial is:
+Expected values $\mathbb{E}[X]$ represent average outcomes:
 
 $$
-\det(A - \lambda I) = 0
+\mathbb{E}[X] = \sum_{i} x_i P(X = x_i)
 $$
 
-Solving this equation yields the eigenvalues. Let's compute eigenvalues for a transition matrix:
+## Questions & Answers
 
-```{code-cell} python
-# Create a transition matrix for a simple Markov chain
-# States: Employed, Unemployed
-transition_matrix = np.array([
-    [0.95, 0.05],  # Employed -> (Employed, Unemployed)
-    [0.20, 0.80]   # Unemployed -> (Employed, Unemployed)
-])
+Common questions about Python for economics:
 
-# Calculate eigenvalues and eigenvectors
-eigenvalues, eigenvectors = np.linalg.eig(transition_matrix)
+- **Q**: Which is faster: `numpy` or plain Python?
+- **A**: `numpy` is typically 10-100x faster for numerical operations
 
-print("Transition Matrix:")
-print(transition_matrix)
-print("\nEigenvalues:")
-print(np.round(eigenvalues, 4))
-print("\nEigenvectors:")
-print(np.round(eigenvectors, 4))
+- **Q**: Can I use `pandas` with large datasets?
+- **A**: Yes, but consider `dask` for datasets larger than RAM
 
-# The eigenvector corresponding to eigenvalue 1 gives steady-state distribution
-steady_state_index = np.argmax(eigenvalues)
-steady_state = eigenvectors[:, steady_state_index]
-steady_state = steady_state / steady_state.sum()  # Normalize
+## "Edge Cases" and [Special] {Characters}
 
-print("\nSteady-State Distribution:")
-print(f"Employed: {steady_state[0]:.2%}")
-print(f"Unemployed: {steady_state[1]:.2%}")
+This section tests various special characters in headings.
+
+### Using `matplotlib`'s `plt.subplot()` for Multiple Plots
+
+The subplot function creates multiple plots in one figure:
+
+```python
+fig, (ax1, ax2) = plt.subplots(1, 2, figsize=(12, 5))
+ax1.plot(x, y1)
+ax2.plot(x, y2)
 ```
 
-These concepts are essential for analyzing dynamic economic systems, such as growth models and stability analysis.
+## Summary
 
-The power iteration method can be used to find the dominant eigenvalue:
-
-$$
-\lambda_1 = \lim_{k \to \infty} \frac{\|A^k \mathbf{v}_0\|}{\|A^{k-1} \mathbf{v}_0\|}
-$$
+Programming tools like **numpy**, *pandas*, and `matplotlib` are essential for modern economic research. Master these libraries to efficiently analyze data and visualize results.
