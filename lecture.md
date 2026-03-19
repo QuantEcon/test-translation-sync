@@ -17,8 +17,6 @@ This lecture introduces fundamental concepts in linear algebra that are essentia
 
 A vector space is a collection of objects called vectors, which can be added together and multiplied by scalars. Understanding vector spaces is crucial for modern economic analysis.
 
-In economics, vector spaces provide the mathematical foundation for optimization, general equilibrium theory, and econometric estimation.
-
 Mathematically, a vector $\mathbf{v} \in \mathbb{R}^n$ can be represented as:
 
 $$
