@@ -17,7 +17,9 @@ This document provides a basic introduction to economic principles. We will expl
 
 Supply and demand are the most fundamental concepts in economics. The supply curve shows how much producers are willing to sell at different prices, while the demand curve shows how much consumers are willing to buy.
 
-When markets are in equilibrium, the quantity supplied equals the quantity demanded. This equilibrium price balances the interests of buyers and sellers.
+### Market Equilibrium
+
+Market equilibrium occurs when supply equals demand. At this critical point, the quantity that producers want to sell exactly matches what consumers want to buy. This equilibrium price represents a stable state where market forces are balanced, and there is no inherent pressure for prices to change.
 
 ## Economic Models
 
