@@ -9,7 +9,15 @@ kernelspec:
   name: python3
 ---
 
-# Linear Algebra Foundations
+(linear-algebra)=
+
+```{raw} jupyter
+<div id="qe-notebook-header" style="text-align:right;">
+        <a href="https://quantecon.org/lectures/">Lectures</a>
+</div>
+```
+
+# {index}`Linear Algebra` Foundations
 
 This lecture introduces fundamental concepts in linear algebra that are essential for quantitative economics. We'll explore vector spaces, matrices, and their applications to economic problems.
 
@@ -121,7 +129,7 @@ The Leontief inverse $(I - A)^{-1}$ is particularly important, where $I$ is the 
 
 ## Eigenvalues and Eigenvectors
 
-Eigenvalues and eigenvectors reveal important properties of linear transformations. An eigenvector $v$ of matrix $A$ satisfies:
+Eigenvalues and eigenvectors reveal important structural properties of linear transformations that are critical for stability analysis. An eigenvector $v$ of matrix $A$ satisfies:
 
 ```{math}
 :label: eigenvalue-equation
