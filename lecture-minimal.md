@@ -24,3 +24,7 @@ When markets are in equilibrium, the quantity supplied equals the quantity deman
 Economic models are simplified representations of economic processes. They help economists understand complex systems by focusing on the most important relationships.
 
 Models make assumptions to simplify reality. While no model is perfect, good models provide valuable insights into how the economy works.
+
+## Market Equilibrium
+
+Market equilibrium represents the state where supply equals demand. At this point, there is no tendency for the price to change, as the market has reached a stable state. Understanding equilibrium is crucial for analyzing market dynamics.
