@@ -25,6 +25,8 @@ The 26 open PRs on this repo are a standing fixture suite — one per diff shape
 
 **Add the `test-translation` label to a fixture PR.** The sync workflow runs in test mode (using the PR head rather than a merge commit), translates into both targets, and opens a translation PR on each — which then draws a real review from `@v0`. Nothing needs to be merged, and `main` is not touched.
 
+A fixture fires on the label being **added**. GitHub emits no `labeled` event for a label that is already present, so a fixture that still carries `test-translation` from a previous run is **spent**: `gh pr edit --add-label` reports success, emits nothing, and starts no workflow. Strip the label first — `make harness-reset` re-arms the whole suite.
+
 Merging a PR here instead runs the same sync in production mode. Commenting `\translate-resync` on a merged PR re-triggers it.
 
 The `test/*` branches are the test program itself. **Do not delete them.**
