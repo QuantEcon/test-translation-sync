@@ -1,51 +1,64 @@
+# Translation Sync — Simplified Chinese
+#
+# Mirrors the production source-repo sync workflow (see
+# lecture-python-programming/.github/workflows/sync-translations-zh-cn.yml)
+# so that a release is exercised through the same wiring the estate runs.
+#
+# HARNESS NOTE: like the review/rebase workflows on the target repos, this
+# tracks the published `@v0` tag rather than checking out the action and
+# building it with `uses: ./action`. The harness is meant to catch config
+# regressions as well as code regressions, and the local-build form never
+# exercises whether `@v0` resolves to the intended release — which is the
+# change the estate most often makes. This file previously pinned
+# `ref: v0.16.1` and built locally, so it silently retested a release six
+# versions behind what production was running.
+# See QuantEcon/action-translation#109.
+#
+# To validate UNRELEASED code, drive the CLI locally against this repo with a
+# built bundle — `uses:` cannot take an expression, so a workflow cannot
+# switch action versions dynamically.
+#
+# HARNESS-ONLY DIVERGENCE from the production template, kept deliberately:
+#   * the `test-translation` label trigger + `test-mode`, so a sync can be
+#     fired from an OPEN fixture PR without merging anything to main;
+#   * `target-repo` derived from ${{ github.repository }} so a fork of the
+#     harness points at its own targets.
 name: Translation Sync
 
 on:
   pull_request:
     types: [closed, labeled]
+  issue_comment:
+    types: [created]
 
 jobs:
   sync-translation:
-    # Run on merge (production) OR when test-translation label added (test mode)
-    if: |
-      (github.event.pull_request.merged == true) ||
-      (github.event.action == 'labeled' && github.event.label.name == 'test-translation')
-    
+    # Merged PR (production path) OR the `test-translation` label on an open PR
+    # (harness path) OR `\translate-resync` on a merged PR (production path).
+    if: >
+      (github.event_name == 'pull_request' && github.event.pull_request.merged == true) ||
+      (github.event_name == 'pull_request' && github.event.action == 'labeled' && github.event.label.name == 'test-translation') ||
+      (github.event_name == 'issue_comment' && github.event.issue.pull_request && contains(github.event.comment.body, '\translate-resync'))
+
     runs-on: ubuntu-latest
-    
+
     steps:
-      - name: Checkout action repository
-        uses: actions/checkout@v4
+      - uses: actions/checkout@v7
         with:
-          repository: QuantEcon/action-translation
-          # Pin to the release under test — tracking the default branch makes a run
-          # unreproducible and silently retests whatever landed on main last.
-          ref: v0.16.1
-          path: action
-      
-      - name: Setup Node.js
-        uses: actions/setup-node@v4
-        with:
-          node-version: '20'
-      
-      - name: Install dependencies
-        run: |
-          cd action
-          npm ci
-      
+          fetch-depth: 2
+
       - name: Determine mode
         id: mode
         run: |
-          if [[ "${{ github.event.pull_request.merged }}" == "true" ]]; then
-            echo "test-mode=false" >> $GITHUB_OUTPUT
-            echo "🚀 Running in PRODUCTION mode (merged PR)"
-          else
+          if [[ "${{ github.event_name }}" == "pull_request" && "${{ github.event.action }}" == "labeled" ]]; then
             echo "test-mode=true" >> $GITHUB_OUTPUT
-            echo "🧪 Running in TEST mode (test-translation label)"
+            echo "🧪 TEST mode — fired by the test-translation label on an open PR"
+          else
+            echo "test-mode=false" >> $GITHUB_OUTPUT
+            echo "🚀 PRODUCTION mode — merged PR or \translate-resync"
           fi
-      
-      - name: Run translation sync
-        uses: ./action
+
+      - uses: QuantEcon/action-translation@v0
         with:
           mode: sync
           target-repo: ${{ github.repository }}.zh-cn
