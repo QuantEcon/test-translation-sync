@@ -1,26 +1,30 @@
 # Translation Sync — Malayalam
 #
-# Mirrors the production source-repo sync workflow (see
-# lecture-python-programming/.github/workflows/sync-translations-ml.yml)
-# so that a release is exercised through the same wiring the estate runs.
+# ONE template renders the source repo's sync workflow for EVERY harness
+# language. `test-action-on-github.sh` substitutes main, ml and
+# Malayalam at reset time and force-pushes the result, so there is no
+# hand-maintained copy per language and no hand-maintained version anywhere.
 #
-# HARNESS NOTE: like the review/rebase workflows on the target repos, this
-# tracks the published `@v0` tag rather than checking out the action and
-# building it with `uses: ./action`. The harness is meant to catch config
-# regressions as well as code regressions, and the local-build form never
-# exercises whether `@v0` resolves to the intended release — which is the
-# change the estate most often makes. This file previously pinned
-# `ref: v0.16.1` and built locally, so it silently retested a release six
-# versions behind what production was running.
-# See QuantEcon/action-translation#109.
+# VERSION: do not hard-code a ref here. The harness substitutes it (defaulting
+# to `main`, overridable with `--action-ref`) and prints what it resolved before
+# creating any PRs. The predecessors of this file pinned `ref: v0.16.1` for
+# eight releases because nothing bumped it and nothing checked it, while two
+# doc pages claimed the harness tracked `main`.
 #
-# To validate UNRELEASED code, drive the CLI locally against this repo with a
-# built bundle — `uses:` cannot take an expression, so a workflow cannot
-# switch action versions dynamically.
+# WHY THE MARKETPLACE FORM: `uses: QuantEcon/action-translation@<ref>` rather
+# than checkout + `uses: ./action`. The committed `dist-action/` bundle is what
+# executes either way, so nothing is lost — and this form additionally exercises
+# ref resolution (does the ref exist, does action.yml parse, is the bundle
+# loadable) on every workflow on every run. It is also what lets ONE knob reach
+# every workflow: rendering with `--action-ref v0` produces a literal `@v0`
+# here, which is the post-release smoke that keeps QuantEcon/action-translation#109's
+# floating-tag check alive without embedding two versions in one run (#202).
 #
-# HARNESS-ONLY DIVERGENCE from the production template, kept deliberately:
-#   * the `test-translation` label trigger + `test-mode`, so a sync can be
-#     fired from an OPEN fixture PR without merging anything to main;
+# Consequence: uncommitted code cannot be tested. Push the branch first.
+#
+# HARNESS-ONLY DIVERGENCES from the production template, kept deliberately:
+#   * the `test-translation` label trigger + `test-mode`, so a sync can be fired
+#     from an OPEN fixture PR without merging anything to main;
 #   * `target-repo` derived from ${{ github.repository }} so a fork of the
 #     harness points at its own targets.
 name: Translation Sync (Malayalam)
@@ -58,7 +62,7 @@ jobs:
             echo "🚀 PRODUCTION mode — merged PR or \translate-resync"
           fi
 
-      - uses: QuantEcon/action-translation@v0
+      - uses: QuantEcon/action-translation@main
         with:
           mode: sync
           target-repo: ${{ github.repository }}.ml
