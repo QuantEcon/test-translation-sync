@@ -24,3 +24,20 @@ When markets are in equilibrium, the quantity supplied equals the quantity deman
 Economic models are simplified representations of economic processes. They help economists understand complex systems by focusing on the most important relationships.
 
 Models make assumptions to simplify reality. While no model is perfect, good models provide valuable insights into how the economy works.
+
+A model's **calibration** is the choice of parameter values that makes its predictions line up with observed data. Calibration is not estimation: it fixes parameters by matching a handful of target moments rather than by maximising a likelihood. Search models such as the McCall model are usually calibrated this way. See the [Wikipedia entry on calibration](https://en.wikipedia.org/wiki/Calibration_(statistics)) for the statistical background.
+
+```{todo}
+Add a worked calibration example once the data appendix is finalised.
+```
+
+(sec:calibration)=
+### Calibration in Practice
+
+In practice a modeller picks a discount factor $eta$ close to $0.95$ and then checks whether the implied capital-output ratio is plausible.
+
+```{code-cell} python
+# A one-line calibration check
+beta = 0.95
+print(f"annual discount rate: {1 / beta - 1:.2%}")
+```
