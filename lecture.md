@@ -130,6 +130,8 @@ Av = \lambda v
 
 where $\lambda$ is the eigenvalue. This fundamental equation appears throughout economics, from growth theory to stability analysis.
 
+Readers who want the economic background first should see {doc}`the introductory lecture <lecture-minimal>`, which sets up supply and demand without any matrix algebra. Equation {eq}`eigenvalue-equation` is the anchor for everything that follows in this section.
+
 For an $n \times n$ matrix $A$, the characteristic polynomial is:
 
 $$
