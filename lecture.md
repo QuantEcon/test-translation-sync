@@ -28,6 +28,14 @@ Let's create and visualize some vectors in Python:
 ```{code-cell} python
 import numpy as np
 import matplotlib.pyplot as plt
+import seaborn as sns
+
+# Use a consistent house style for every figure in this lecture
+sns.set_theme(style='whitegrid')
+
+# Fix the seed so the jitter below is reproducible
+np.random.seed(42)
+jitter = np.random.normal(scale=0.05, size=2)
 
 # Create two vectors
 v1 = np.array([2, 3])
@@ -39,8 +47,8 @@ ax.quiver(0, 0, v1[0], v1[1], angles='xy', scale_units='xy', scale=1, color='blu
 ax.quiver(0, 0, v2[0], v2[1], angles='xy', scale_units='xy', scale=1, color='red', label='v2')
 ax.set_xlim(-1, 5)
 ax.set_ylim(-1, 5)
-ax.set_xlabel('x-axis')
-ax.set_ylabel('y-axis')
+ax.set_xlabel(r'$\alpha$ component')
+ax.set_ylabel(r'$\beta$ component')
 ax.set_title('Vector Representation in 2D Space')
 ax.legend()
 ax.grid(True)
