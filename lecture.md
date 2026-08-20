@@ -83,6 +83,8 @@ $$
 
 Matrix multiplication allows us to compose linear transformations. For matrices $A$ and $B$, the product $AB$ represents applying transformation $B$ followed by transformation $A$.
 
+The order of composition matters, because matrix multiplication is not commutative: in general $AB \neq BA$. This is not a technicality. When two policies are represented as matrices, whether they commute decides whether applying them in the other order would have produced the same economy.
+
 Let's demonstrate matrix operations with an economic application:
 
 ```{code-cell} python
@@ -108,7 +110,18 @@ print("\nLeontief Inverse:")
 print(np.round(leontief_inverse, 3))
 print("\nTotal Output Required (billions):")
 print(np.round(total_output, 2))
+
+# Label the same matrix so the axes carry economic meaning
+import pandas as pd
+
+sectors = ['Agriculture', 'Manufacturing', 'Services']
+io_table = pd.DataFrame(input_output, index=sectors, columns=sectors)
+io_table.index.name = 'using_sector'
+io_table.columns.name = 'supplying_sector'
+print(io_table)
 ```
+
+The labelled table is indexed by `using_sector` down the rows and `supplying_sector` across the columns, so reading down a single column shows what one sector supplies to every other sector.
 
 ### Applications in Economics
 
