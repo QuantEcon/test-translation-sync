@@ -34,7 +34,7 @@ Add a worked calibration example once the data appendix is finalised.
 (sec:calibration)=
 ### Calibration in Practice
 
-In practice a modeller picks a discount factor $eta$ close to $0.95$ and then checks whether the implied capital-output ratio is plausible.
+In practice a modeller picks a discount factor $\beta$ close to $0.95$ and then checks whether the implied capital-output ratio is plausible.
 
 ```{code-cell} python
 # A one-line calibration check
