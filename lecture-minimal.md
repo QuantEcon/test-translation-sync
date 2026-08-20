@@ -19,6 +19,8 @@ Supply and demand are the most fundamental concepts in economics. The supply cur
 
 When markets are in equilibrium, the quantity supplied equals the quantity demanded. This equilibrium price balances the interests of buyers and sellers.
 
+A price set above the equilibrium level leaves some sellers unable to find buyers, and the resulting surplus pushes the price back down. Does the adjustment happen quickly? That depends on how responsive quantities are to price, which is why the slope of each curve matters as much as its position.
+
 ## Economic Models
 
 Economic models are simplified representations of economic processes. They help economists understand complex systems by focusing on the most important relationships.
