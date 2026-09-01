@@ -1,8 +1,8 @@
-# Translation Sync — Chinese
+# Translation Sync — Malayalam
 #
 # ONE template renders the source repo's sync workflow for EVERY harness
-# language. `test-action-on-github.sh` substitutes v0.27.0, zh-cn and
-# Chinese at reset time and force-pushes the result, so there is no
+# language. `test-action-on-github.sh` substitutes v0.27.0, ml and
+# Malayalam at reset time and force-pushes the result, so there is no
 # hand-maintained copy per language and no hand-maintained version anywhere.
 #
 # VERSION: do not hard-code a ref here. The harness substitutes it (defaulting
@@ -27,7 +27,7 @@
 #     from an OPEN fixture PR without merging anything to main;
 #   * `target-repo` derived from ${{ github.repository }} so a fork of the
 #     harness points at its own targets.
-name: Translation Sync (Chinese)
+name: Translation Sync (Malayalam)
 
 on:
   pull_request:
@@ -36,7 +36,7 @@ on:
     types: [created]
 
 jobs:
-  sync-translation-zh-cn:
+  sync-translation-ml:
     # Merged PR (production path) OR the `test-translation` label on an open PR
     # (harness path) OR `\translate-resync` on a merged PR (production path).
     # The resync clause mirrors the production template exactly: a comment on a
@@ -77,8 +77,8 @@ jobs:
       - uses: QuantEcon/action-translation@v0.27.0
         with:
           mode: sync
-          target-repo: ${{ github.repository }}.zh-cn
-          target-language: zh-cn
+          target-repo: ${{ github.repository }}.ml
+          target-language: ml
           source-language: en
           docs-folder: '.'
           anthropic-api-key: ${{ secrets.ANTHROPIC_API_KEY }}
