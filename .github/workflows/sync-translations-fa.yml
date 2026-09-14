@@ -1,7 +1,7 @@
 # Translation Sync — Farsi
 #
 # ONE template renders the source repo's sync workflow for EVERY harness
-# language. `test-action-on-github.sh` substitutes v0, fa and
+# language. `test-action-on-github.sh` substitutes v0.28.1, fa and
 # Farsi at reset time and force-pushes the result, so there is no
 # hand-maintained copy per language and no hand-maintained version anywhere.
 #
@@ -32,6 +32,9 @@ name: Translation Sync (Farsi)
 on:
   pull_request:
     types: [closed, labeled]
+    # Mirrors the production template: only PRs against main sync. Fixture
+    # PRs are opened with `--base main`, so the label path is unaffected.
+    branches: [main]
   issue_comment:
     types: [created]
 
@@ -74,7 +77,7 @@ jobs:
             echo "🚀 PRODUCTION mode — merged PR or \translate-resync"
           fi
 
-      - uses: QuantEcon/action-translation@v0
+      - uses: QuantEcon/action-translation@v0.28.1
         with:
           mode: sync
           target-repo: ${{ github.repository }}.fa
