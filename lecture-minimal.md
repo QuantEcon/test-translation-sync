@@ -3,8 +3,10 @@ jupytext:
   text_representation:
     extension: .md
     format_name: myst
+    format_version: 0.13
+    jupytext_version: 1.16.1
 kernelspec:
-  display_name: Python 3
+  display_name: Python 3 (ipykernel)
   language: python
   name: python3
 ---
@@ -24,3 +26,4 @@ When markets are in equilibrium, the quantity supplied equals the quantity deman
 Economic models are simplified representations of economic processes. They help economists understand complex systems by focusing on the most important relationships.
 
 Models make assumptions to simplify reality. While no model is perfect, good models provide valuable insights into how the economy works.
+
