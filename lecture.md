@@ -60,6 +60,18 @@ These properties ensure that vector spaces behave predictably under mathematical
 
 Vector space properties are fundamental in economic modeling. The closure property ensures that combinations of feasible allocations remain feasible, while the existence of inverses allows us to model debts and obligations.
 
+#### Closure Property
+
+The closure property is particularly important for economic applications. It ensures that combining feasible consumption bundles or production plans results in another feasible outcome.
+
+Formally, for any vectors $\mathbf{u}, \mathbf{v} \in V$ and scalars $\alpha, \beta \in \mathbb{R}$:
+
+$$
+\alpha \mathbf{u} + \beta \mathbf{v} \in V
+$$
+
+This property guarantees that convex combinations of points remain in the space, which is crucial for optimization problems in economics.
+
 The sum of two vectors $\mathbf{u}$ and $\mathbf{v}$ is defined component-wise:
 
 ```{math}
