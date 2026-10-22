@@ -11,11 +11,11 @@ kernelspec:
 
 # Linear Algebra Foundations
 
-This lecture introduces fundamental concepts in linear algebra that are essential for quantitative economics. We'll explore vector spaces, matrices, and their applications to economic problems.
+This lecture introduces fundamental concepts in linear algebra that are essential for quantitative economics and data science. We'll explore vector spaces, matrices, eigenvalues, and their applications to economic problems.
 
 ## Vector Spaces
 
-A vector space is a collection of objects called vectors, which can be added together and multiplied by scalars. Understanding vector spaces is crucial for modern economic analysis.
+A vector space is a collection of objects called vectors, which can be added together and multiplied by scalars. Understanding vector spaces is crucial for modern economic analysis and machine learning applications.
 
 Mathematically, a vector $\mathbf{v} \in \mathbb{R}^n$ can be represented as:
 
@@ -29,7 +29,7 @@ Let's create and visualize some vectors in Python:
 import numpy as np
 import matplotlib.pyplot as plt
 
-# Create two vectors
+# Create two vectors  
 v1 = np.array([2, 3])
 v2 = np.array([1, 4])
 
@@ -53,8 +53,9 @@ Vector spaces satisfy several key properties:
 - Closure under addition and scalar multiplication
 - Existence of additive identity (zero vector)
 - Existence of additive inverses
+- Associativity and commutativity of addition
 
-These properties ensure that vector spaces behave predictably under mathematical operations.
+These properties ensure that vector spaces behave predictably under mathematical operations, forming the foundation for linear transformations.
 
 #### Applications in Economics
 
@@ -68,7 +69,7 @@ The sum of two vectors $\mathbf{u}$ and $\mathbf{v}$ is defined component-wise:
 
 ## Matrix Operations
 
-Matrices are rectangular arrays of numbers that represent linear transformations. They are fundamental tools in economic modeling and data analysis.
+Matrices are rectangular arrays of numbers that represent linear transformations. They are fundamental tools in economic modeling, data analysis, and optimization problems.
 
 A general $m \times n$ matrix has the form:
 
@@ -81,95 +82,12 @@ a_{m1} & a_{m2} & \cdots & a_{mn}
 \end{bmatrix}
 $$
 
-Matrix multiplication allows us to compose linear transformations. For matrices $A$ and $B$, the product $AB$ represents applying transformation $B$ followed by transformation $A$.
+### Eigenvalues and Eigenvectors
 
-Let's demonstrate matrix operations with an economic application:
-
-```{code-cell} python
-# Create a simple input-output matrix for a 3-sector economy
-# Sectors: Agriculture, Manufacturing, Services
-input_output = np.array([
-    [0.2, 0.3, 0.1],  # Agriculture inputs
-    [0.3, 0.2, 0.2],  # Manufacturing inputs
-    [0.1, 0.2, 0.3]   # Services inputs
-])
-
-# Final demand vector (in billions)
-final_demand = np.array([100, 150, 200])
-
-# Calculate total output using Leontief inverse: x = (I - A)^{-1} * d
-I = np.eye(3)
-leontief_inverse = np.linalg.inv(I - input_output)
-total_output = leontief_inverse @ final_demand
-
-print("Input-Output Matrix:")
-print(input_output)
-print("\nLeontief Inverse:")
-print(np.round(leontief_inverse, 3))
-print("\nTotal Output Required (billions):")
-print(np.round(total_output, 2))
-```
-
-### Applications in Economics
-
-Economic models often use matrices to represent:
-- Input-output relationships in production
-- Transition probabilities in Markov chains
-- Coefficient matrices in linear equation systems
-
-The Leontief inverse $(I - A)^{-1}$ is particularly important, where $I$ is the identity matrix and $A$ is the input-output coefficient matrix.
-
-## Eigenvalues and Eigenvectors
-
-Eigenvalues and eigenvectors reveal important properties of linear transformations. An eigenvector $v$ of matrix $A$ satisfies:
-
-```{math}
-:label: eigenvalue-equation
-Av = \lambda v
-```
-
-where $\lambda$ is the eigenvalue. This fundamental equation appears throughout economics, from growth theory to stability analysis.
-
-For an $n \times n$ matrix $A$, the characteristic polynomial is:
+Eigenvalues and eigenvectors reveal important structural properties of linear transformations. For a square matrix $A$, an eigenvector $\mathbf{v}$ and corresponding eigenvalue $\lambda$ satisfy:
 
 $$
-\det(A - \lambda I) = 0
+A\mathbf{v} = \lambda \mathbf{v}
 $$
 
-Solving this equation yields the eigenvalues. Let's compute eigenvalues for a transition matrix:
-
-```{code-cell} python
-# Create a transition matrix for a simple Markov chain
-# States: Employed, Unemployed
-transition_matrix = np.array([
-    [0.95, 0.05],  # Employed -> (Employed, Unemployed)
-    [0.20, 0.80]   # Unemployed -> (Employed, Unemployed)
-])
-
-# Calculate eigenvalues and eigenvectors
-eigenvalues, eigenvectors = np.linalg.eig(transition_matrix)
-
-print("Transition Matrix:")
-print(transition_matrix)
-print("\nEigenvalues:")
-print(np.round(eigenvalues, 4))
-print("\nEigenvectors:")
-print(np.round(eigenvectors, 4))
-
-# The eigenvector corresponding to eigenvalue 1 gives steady-state distribution
-steady_state_index = np.argmax(eigenvalues)
-steady_state = eigenvectors[:, steady_state_index]
-steady_state = steady_state / steady_state.sum()  # Normalize
-
-print("\nSteady-State Distribution:")
-print(f"Employed: {steady_state[0]:.2%}")
-print(f"Unemployed: {steady_state[1]:.2%}")
-```
-
-These concepts are essential for analyzing dynamic economic systems, such as growth models and stability analysis.
-
-The power iteration method can be used to find the dominant eigenvalue:
-
-$$
-\lambda_1 = \lim_{k \to \infty} \frac{\|A^k \mathbf{v}_0\|}{\|A^{k-1} \mathbf{v}_0\|}
-$$
+These concepts are crucial for understanding dynamic systems, stability analysis, and dimensionality reduction techniques like PCA.
