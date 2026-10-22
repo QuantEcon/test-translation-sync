@@ -1,7 +1,7 @@
 # Translation Sync — Chinese
 #
 # ONE template renders the source repo's sync workflow for EVERY harness
-# language. `test-action-on-github.sh` substitutes feat/sync-scope-existing, zh-cn and
+# language. `test-action-on-github.sh` substitutes v0.30.0, zh-cn and
 # Chinese at reset time and force-pushes the result, so there is no
 # hand-maintained copy per language and no hand-maintained version anywhere.
 #
@@ -91,7 +91,7 @@ jobs:
             echo "sync-scope: all — the action's default"
           fi
 
-      - uses: QuantEcon/action-translation@feat/sync-scope-existing
+      - uses: QuantEcon/action-translation@v0.30.0
         with:
           mode: sync
           target-repo: ${{ github.repository }}.zh-cn
