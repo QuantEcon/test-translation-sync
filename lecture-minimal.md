@@ -11,7 +11,7 @@ kernelspec:
 
 # Introduction to Economics
 
-This document provides a basic introduction to economic principles. We will explore fundamental concepts that form the foundation of economic analysis.
+This document provides a comprehensive introduction to economic principles with updated content and examples. We will explore fundamental concepts that form the foundation of modern economic analysis.
 
 ## Supply and Demand
 
