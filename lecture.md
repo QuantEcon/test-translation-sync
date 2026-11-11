@@ -20,7 +20,7 @@ A vector space is a collection of objects called vectors, which can be added tog
 Mathematically, a vector $\mathbf{v} \in \mathbb{R}^n$ can be represented as:
 
 $$
-\mathbf{v} = \begin{bmatrix} v_1 \\ v_2 \\ \vdots \\ v_n \end{bmatrix}
+\mathbf{v} = \begin{bmatrix} v_1 \\ v_2 \\ \vdots \\ v_n \end{bmatrix} \in \mathbb{R}^n
 $$
 
 Let's create and visualize some vectors in Python:
@@ -63,7 +63,7 @@ Vector space properties are fundamental in economic modeling. The closure proper
 The sum of two vectors $\mathbf{u}$ and $\mathbf{v}$ is defined component-wise:
 
 ```{math}
-\mathbf{u} + \mathbf{v} = \begin{bmatrix} u_1 + v_1 \\ u_2 + v_2 \\ \vdots \\ u_n + v_n \end{bmatrix}
+\mathbf{u} + \mathbf{v} = \begin{bmatrix} u_1 + v_1 \\ u_2 + v_2 \\ \vdots \\ u_n + v_n \end{bmatrix} \in \mathbb{R}^n
 ```
 
 ## Matrix Operations
@@ -78,7 +78,7 @@ a_{11} & a_{12} & \cdots & a_{1n} \\
 a_{21} & a_{22} & \cdots & a_{2n} \\
 \vdots & \vdots & \ddots & \vdots \\
 a_{m1} & a_{m2} & \cdots & a_{mn}
-\end{bmatrix}
+\end{bmatrix} \in \mathbb{R}^{m \times n}
 $$
 
 Matrix multiplication allows us to compose linear transformations. For matrices $A$ and $B$, the product $AB$ represents applying transformation $B$ followed by transformation $A$.
@@ -125,7 +125,7 @@ Eigenvalues and eigenvectors reveal important properties of linear transformatio
 
 ```{math}
 :label: eigenvalue-equation
-Av = \lambda v
+A\mathbf{v} = \lambda \mathbf{v}, \quad \mathbf{v} \neq \mathbf{0}
 ```
 
 where $\lambda$ is the eigenvalue. This fundamental equation appears throughout economics, from growth theory to stability analysis.
@@ -133,7 +133,7 @@ where $\lambda$ is the eigenvalue. This fundamental equation appears throughout 
 For an $n \times n$ matrix $A$, the characteristic polynomial is:
 
 $$
-\det(A - \lambda I) = 0
+\det(A - \lambda I) = 0, \quad \lambda \in \mathbb{C}
 $$
 
 Solving this equation yields the eigenvalues. Let's compute eigenvalues for a transition matrix:
@@ -171,5 +171,5 @@ These concepts are essential for analyzing dynamic economic systems, such as gro
 The power iteration method can be used to find the dominant eigenvalue:
 
 $$
-\lambda_1 = \lim_{k \to \infty} \frac{\|A^k \mathbf{v}_0\|}{\|A^{k-1} \mathbf{v}_0\|}
+\lambda_1 = \lim_{k \to \infty} \frac{\|A^k \mathbf{v}_0\|}{\|A^{k-1} \mathbf{v}_0\|}, \quad \mathbf{v}_0 \neq \mathbf{0}
 $$
