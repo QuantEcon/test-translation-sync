@@ -13,7 +13,7 @@ kernelspec:
 
 This lecture introduces fundamental concepts in linear algebra that are essential for quantitative economics. We'll explore vector spaces, matrices, and their applications to economic problems.
 
-## Vector Spaces
+## Vector spaces
 
 A vector space is a collection of objects called vectors, which can be added together and multiplied by scalars. Understanding vector spaces is crucial for modern economic analysis.
 
@@ -47,7 +47,7 @@ ax.grid(True)
 plt.show()
 ```
 
-### Basic Properties
+### Basic properties
 
 Vector spaces satisfy several key properties:
 - Closure under addition and scalar multiplication
@@ -56,7 +56,7 @@ Vector spaces satisfy several key properties:
 
 These properties ensure that vector spaces behave predictably under mathematical operations.
 
-#### Applications in Economics
+#### Applications in economics
 
 Vector space properties are fundamental in economic modeling. The closure property ensures that combinations of feasible allocations remain feasible, while the existence of inverses allows us to model debts and obligations.
 
@@ -66,7 +66,7 @@ The sum of two vectors $\mathbf{u}$ and $\mathbf{v}$ is defined component-wise:
 \mathbf{u} + \mathbf{v} = \begin{bmatrix} u_1 + v_1 \\ u_2 + v_2 \\ \vdots \\ u_n + v_n \end{bmatrix}
 ```
 
-## Matrix Operations
+## Matrix operations
 
 Matrices are rectangular arrays of numbers that represent linear transformations. They are fundamental tools in economic modeling and data analysis.
 
@@ -110,7 +110,7 @@ print("\nTotal Output Required (billions):")
 print(np.round(total_output, 2))
 ```
 
-### Applications in Economics
+### Applications in economics
 
 Economic models often use matrices to represent:
 - Input-output relationships in production
@@ -119,7 +119,7 @@ Economic models often use matrices to represent:
 
 The Leontief inverse $(I - A)^{-1}$ is particularly important, where $I$ is the identity matrix and $A$ is the input-output coefficient matrix.
 
-## Eigenvalues and Eigenvectors
+## Eigenvalues and eigenvectors
 
 Eigenvalues and eigenvectors reveal important properties of linear transformations. An eigenvector $v$ of matrix $A$ satisfies:
 
@@ -128,7 +128,7 @@ Eigenvalues and eigenvectors reveal important properties of linear transformatio
 Av = \lambda v
 ```
 
-where $\lambda$ is the eigenvalue. This fundamental equation appears throughout economics, from growth theory to stability analysis.
+where $\lambda$ is the eigenvalue. This fundamental equation appears throughout economics, from growth theory to stability analysis of dynamic systems.
 
 For an $n \times n$ matrix $A$, the characteristic polynomial is:
 
