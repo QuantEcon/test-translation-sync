@@ -49,12 +49,14 @@ plt.show()
 
 ### Basic Properties
 
-Vector spaces satisfy several key properties:
+Vector spaces satisfy several fundamental axioms that define their algebraic structure:
 - Closure under addition and scalar multiplication
 - Existence of additive identity (zero vector)
 - Existence of additive inverses
+- Associativity and commutativity of addition
+- Distributive properties connecting addition and scalar multiplication
 
-These properties ensure that vector spaces behave predictably under mathematical operations.
+These axioms ensure that vector spaces behave predictably under mathematical operations, making them ideal for representing economic choice sets and constraint sets in optimization problems.
 
 #### Applications in Economics
 
